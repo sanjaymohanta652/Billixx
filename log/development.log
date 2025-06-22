@@ -1,0 +1,243 @@
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Billixx'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Billixx'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Billixx'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-22 03:36:25.145693', '2025-06-22 03:36:25.145696') RETURNING "key" /*application='Billixx'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Billixx'*/[0m
+Migrating to CreateBills (20250622033413)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Billixx'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "bills" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "amount" decimal, "status" varchar, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Billixx'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250622033413') RETURNING "version" /*application='Billixx'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Billixx'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Billixx'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-06-22 09:28:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Billixx'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sanjay/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sanjay/.asdf/installs/ruby/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 119ms (Views: 13.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 11.8ms)
+
+
+Started GET "/bill" for 127.0.0.1 at 2025-06-22 09:28:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/bill"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-06-22 09:28:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:02 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.8ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/index.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | GC: 0.7ms)
+Completed 200 OK in 111ms (Views: 12.6ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 4.8ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/controllers/index-ee64e1f1.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/turbo.min-3a2e143f.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/stimulus.min-4b1e420e.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2025-06-22 09:29:03 +0530
+Started GET "/bills/new" for 127.0.0.1 at 2025-06-22 09:29:05 +0530
+Processing by BillsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/new.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 18.8ms | GC: 0.0ms)
+  Rendered bills/new.html.erb within layouts/application (Duration: 19.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 20.2ms | ActiveRecord: 0.4ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/bills" for 127.0.0.1 at 2025-06-22 09:29:31 +0530
+Processing by BillsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "bill"=>{"title"=>"First Bill ", "amount"=>"5000", "status"=>"Not completed", "date"=>"2025-06-22"}, "commit"=>"Create Bill"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+  [1m[36mBill Create (1.8ms)[0m  [1m[32mINSERT INTO "bills" ("title", "amount", "status", "date", "created_at", "updated_at") VALUES ('First Bill ', 5000.0, 'Not completed', '2025-06-22', '2025-06-22 03:59:31.801085', '2025-06-22 03:59:31.801085') RETURNING "id" /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/bills/1
+Completed 302 Found in 50ms (ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills/1" for 127.0.0.1 at 2025-06-22 09:29:31 +0530
+Processing by BillsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 1 LIMIT 1 /*action='show',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/show.html.erb within layouts/application
+  Rendered bills/_bill.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered bills/show.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 43ms (Views: 3.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills/1/edit" for 127.0.0.1 at 2025-06-22 09:29:34 +0530
+Processing by BillsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 1 LIMIT 1 /*action='edit',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/edit.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered bills/edit.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 44ms (Views: 2.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:34 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 5.6ms | GC: 4.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 4.2ms)
+Completed 200 OK in 47ms (Views: 6.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 4.2ms)
+
+
+Started GET "/bills/1/edit" for 127.0.0.1 at 2025-06-22 09:29:35 +0530
+Processing by BillsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 1 LIMIT 1 /*action='edit',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/edit.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 1.6ms | GC: 0.5ms)
+  Rendered bills/edit.html.erb within layouts/application (Duration: 1.8ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.5ms)
+Completed 200 OK in 44ms (Views: 2.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:37 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 1.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:38 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 43ms (Views: 1.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:43 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 2.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:29:46 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 2.1ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.6ms)
+Completed 200 OK in 42ms (Views: 2.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/bills/new" for 127.0.0.1 at 2025-06-22 09:29:48 +0530
+Processing by BillsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/new.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered bills/new.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/bills" for 127.0.0.1 at 2025-06-22 09:30:08 +0530
+Processing by BillsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "bill"=>{"title"=>"Bill 2", "amount"=>"5030", "status"=>"Not completed", "date"=>"2025-06-22"}, "commit"=>"Create Bill"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+  [1m[36mBill Create (1.9ms)[0m  [1m[32mINSERT INTO "bills" ("title", "amount", "status", "date", "created_at", "updated_at") VALUES ('Bill 2', 5030.0, 'Not completed', '2025-06-22', '2025-06-22 04:00:08.913535', '2025-06-22 04:00:08.913535') RETURNING "id" /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/bills/2
+Completed 302 Found in 46ms (ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/bills/2" for 127.0.0.1 at 2025-06-22 09:30:08 +0530
+Processing by BillsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 2 LIMIT 1 /*action='show',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/show.html.erb within layouts/application
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/show.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills/2/edit" for 127.0.0.1 at 2025-06-22 09:30:10 +0530
+Processing by BillsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 2 LIMIT 1 /*action='edit',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/edit.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered bills/edit.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 46ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills/2/edit" for 127.0.0.1 at 2025-06-22 09:30:13 +0530
+Processing by BillsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" WHERE "bills"."id" = 2 LIMIT 1 /*action='edit',application='Billixx',controller='bills'*/[0m
+  ↳ app/controllers/bills_controller.rb:63:in `set_bill'
+  Rendering layout layouts/application.html.erb
+  Rendering bills/edit.html.erb within layouts/application
+  Rendered bills/_form.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered bills/edit.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/bills" for 127.0.0.1 at 2025-06-22 09:30:14 +0530
+Processing by BillsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering bills/index.html.erb within layouts/application
+  [1m[36mBill Load (0.1ms)[0m  [1m[34mSELECT "bills".* FROM "bills" /*action='index',application='Billixx',controller='bills'*/[0m
+  ↳ app/views/bills/index.html.erb:8
+  Rendered bills/_bill.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered bills/_bill.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered bills/index.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
